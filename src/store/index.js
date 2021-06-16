@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import recipes from './recipes'
+import user from './user'
 
 Vue.use(Vuex)
 
@@ -15,15 +16,16 @@ Vue.use(Vuex)
  */
 
 export default function (/* { ssrContext } */) {
-  const Store = new Vuex.Store({
-    modules: {
-      recipes
-    },
+	const Store = new Vuex.Store({
+		modules: {
+			recipes,
+			user
+		},
 
-    // enable strict mode (adds overhead!)
-    // for dev mode only
-    strict: process.env.DEBUGGING
-  })
+		// enable strict mode (adds overhead!)
+		// for dev mode only
+		strict: process.env.DEBUGGING
+	})
 
-  return Store
+	return Store
 }

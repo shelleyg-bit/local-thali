@@ -4,6 +4,7 @@ export default {
 		recipesDb: [
 			{
 				location: 'Portland, OR, USA',
+				hasMeat: false,
 				recipes: [
 					{
 						name: 'Potato onion soup',

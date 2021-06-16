@@ -12,6 +12,16 @@
 	    <RecipeCard :thaliName="thaliName" />
     </q-dialog>
 
+		<q-dialog v-model='noMoreRecipesLeft'>
+			<q-card>
+				<q-card-section>
+					<div class="text-h6">
+		       Congratulations! You have eaten the whole world
+					</div>
+				</q-card-section>
+				
+			</q-card>
+		</q-dialog>
 
   </q-page>
 
@@ -26,14 +36,36 @@ export default {
 	data() {
 		return {
 			showRecipe: false,
+			noMoreRecipesLeft: false, 
 			thaliName: ''
 		}
 	},
 	
 	methods: {
 		generateRecipe() {
-			this.thaliName='aaloo dum banarsi'
+		  const location = this.$store.state.user.location
+
+			const eatsMeat = this.$store.state.user.eatsMeat
+			
+			let thaliOptions = this.$store.state.recipes.recipesDb.find((db) =>
+			db.location === location && db.hasMeat === eatsMeat).recipes
+	
+	    // filter already thalis which are already shown to user
+		  thaliOptions = thaliOptions.filter((thali) => 
+			!this.$store.state.user.plannedThalis.includes(thali.name)
+			&& !this.$store.state.user.rejectedThalis.includes(thali.name))
+
+      if (thaliOptions.length > 0) {
+			// pick a random thali
+			const newThali = thaliOptions[Math.floor(Math.random()*thaliOptions.length)]
+
+			this.thaliName = newThali.name 
+			this.$store.commit('addThali', this.thaliName) // TODO: commit in recipe card
 			this.showRecipe = true 
+
+			} else {
+				this.noMoreRecipesLeft = true
+			}
 		}
 	},
 	components: {
