@@ -9,7 +9,7 @@
       @click="generateRecipe"
     >
     <q-dialog v-model='showRecipe'>
-	    <RecipeCard :thaliName="thaliName" />
+	    <RecipeCard :thaliRecipe="thaliRecipe" />
     </q-dialog>
 
 		<q-dialog v-model='noMoreRecipesLeft'>
@@ -37,7 +37,7 @@ export default {
 		return {
 			showRecipe: false,
 			noMoreRecipesLeft: false, 
-			thaliName: ''
+			thaliRecipe: ''
 		}
 	},
 	
@@ -57,10 +57,8 @@ export default {
 
       if (thaliOptions.length > 0) {
 			// pick a random thali
-			const newThali = thaliOptions[Math.floor(Math.random()*thaliOptions.length)]
+			this.thaliRecipe = thaliOptions[Math.floor(Math.random()*thaliOptions.length)]
 
-			this.thaliName = newThali.name 
-			this.$store.commit('addThali', this.thaliName) // TODO: commit in recipe card
 			this.showRecipe = true 
 
 			} else {
