@@ -8,7 +8,7 @@
       style="width: 400px; height: 400px"
       @click="generateRecipe"
     >
-    <q-dialog v-model='showRecipe'>
+    <q-dialog v-model='showRecipe'> // TODO: make it persistent
 	    <RecipeCard :thaliRecipe="thaliRecipe" />
     </q-dialog>
 
@@ -37,7 +37,7 @@ export default {
 		return {
 			showRecipe: false,
 			noMoreRecipesLeft: false, 
-			thaliRecipe: ''
+			thaliRecipe: {}
 		}
 	},
 	
