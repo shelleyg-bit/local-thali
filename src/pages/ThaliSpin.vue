@@ -8,8 +8,7 @@
       style="width: 400px; height: 400px"
       @click="generateRecipe"
     >
-		<!-- TODO Make it persistent -->
-    <q-dialog v-model='showRecipe'>
+    <q-dialog v-model='showRecipe' persistent>
 	    <RecipeCard :thaliRecipe="thaliRecipe" />
     </q-dialog>
 

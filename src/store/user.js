@@ -11,6 +11,10 @@ export default {
 		addThali(state, thaliName) {
 			state.plannedThalis.push(thaliName)
 
+		},
+		rejectThali(state, thaliName) {
+			state.rejectedThalis.push(thaliName)
+
 		}
 	}
 }
