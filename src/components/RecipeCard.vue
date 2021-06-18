@@ -1,30 +1,42 @@
 <template>
     <q-card class="recipe-card">
       <q-card-section>
-        <div class="text-h6">{{ thaliRecipe.name }} </div>
+        <div class="text-h6">{{ 
+					thaliRecipe.name.toLowerCase()
+					.split(' ')
+    			.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+   				.join(' ') 
+				}} </div>
       </q-card-section>
 
       <q-tabs v-model="tab" class="text-teal">
-        <q-tab label="Tab one" name="ingredients" />
-        <q-tab label="Tab two" name="steps" />
+        <q-tab label="Ingredients" name="ingredients" />
+        <q-tab label="How to Cook?" name="steps" />
       </q-tabs>
 
       <q-separator />
 
       <q-tab-panels v-model="tab" animated>
         <q-tab-panel name="ingredients">
-          The QCard component is a great way to display important pieces of grouped content.
+					<q-list>
+						<Ingredient v-for="(ingredient) in thaliRecipe.ingredients" :ingredient="ingredient"
+						:key="ingredient.name"/>
+						
+					</q-list>
         </q-tab-panel>
 
         <q-tab-panel name="steps">
-          With so much content to display at once, and often so little screen real-estate,
-          Cards have fast become the design pattern of choice for many companies, including
-          the likes of Google and Twitter.
+					<q-list>
+						<Step v-for="(step, i) in thaliRecipe.steps" :step="step" :count="i" :key="step"/>
+
+					</q-list>
         </q-tab-panel>
       </q-tab-panels>
     </q-card>
 </template>
 <script>
+import Ingredient from 'components/Ingredient.vue'
+import Step from 'components/Step.vue'
  export default {
 	 data() {
 		 return {
@@ -36,6 +48,10 @@
 			 type: Object,
 			 required: true
 		 }
+	 },
+	 components: {
+		 Ingredient,
+		 Step
 	 },
 	 created() {
 			this.$store.commit('addThali', this.thaliRecipe.name)
