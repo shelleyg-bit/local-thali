@@ -68,6 +68,7 @@ import Step from 'components/Step.vue'
 	 methods: {
 		 addThaliToPlan() {
 			this.$store.commit('addThali', this.thaliRecipe.name)
+			this.$store.commit('addItemsToGrocery', this.thaliRecipe.ingredients)
 
 		 },
 		 rejectThali() {

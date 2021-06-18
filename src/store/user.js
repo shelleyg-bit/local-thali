@@ -5,7 +5,7 @@ export default {
 		eatsMeat: false,
 		plannedThalis: [],
 		rejectedThalis: [],
-		groceryList: null
+		groceryList: {}
 	},
 	mutations: {
 		addThali(state, thaliName) {
@@ -15,6 +15,27 @@ export default {
 		rejectThali(state, thaliName) {
 			state.rejectedThalis.push(thaliName)
 
+		},
+		addItemsToGrocery(state, ingredients) {
+			for (const item of ingredients) {
+				let categoryItems = state.groceryList[item.category]
+					? state.groceryList[item.category]
+					: null
+				let existingItem = categoryItems
+					? categoryItems.find((gItem) => gItem.name === item.name)
+					: null
+				if (existingItem) {
+					existingItem.quantity += item.quantity
+
+				} else {
+					if (!categoryItems) {
+						state.groceryList[item.category] = []
+					}
+					state.groceryList[item.category].push({ name: item.name, quantity: item.quantity, units: item.units })
+
+				}
+
+			}
 		}
 	}
 }
