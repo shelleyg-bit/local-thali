@@ -1,0 +1,49 @@
+<template>
+<div>
+	<div class="q-pa-md q-gutter-sm">
+    <q-tree
+      :nodes="groceryList"
+      node-key="name"
+			label-key="name"
+    />
+  </div>
+
+</div>
+
+
+</template>
+
+<script>
+const categoryMap = {
+	'produce': 'Eat your Fruits & Veggies',
+	'dairy': 'Delicious Dairy',
+	'grain': 'Grains of Truth',
+	'meat': 'Meat Matters?',
+	'spice': 'Season of Taste'
+}
+
+export default {
+	name: 'GroceryList',
+	data() {
+		return {
+			groceryList: []
+		}
+	},
+	
+	methods: {
+		updateGrocerylist() {
+			const userGroceryList = this.$store.state.user.groceryList
+			for (const category of Object.keys(userGroceryList)) {
+				const gItem = {name: categoryMap[category]}
+				gItem.children = userGroceryList[category]
+				this.groceryList.push(gItem)
+			}
+			console.log(JSON.stringify(this.groceryList))
+		}
+	},
+	created() {
+		this.updateGrocerylist()
+	}
+}
+
+</script>

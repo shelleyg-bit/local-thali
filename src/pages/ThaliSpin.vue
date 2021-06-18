@@ -23,6 +23,10 @@
 			</q-card>
 		</q-dialog>
 
+		<div class="row justify-evenly">
+			<q-btn icon="list" label="GroceryList" @click='$router.push({name: "GroceryList"})'/>
+		</div>
+
   </q-page>
 
 	</q-page-container>
