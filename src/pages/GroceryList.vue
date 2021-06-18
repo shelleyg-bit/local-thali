@@ -1,4 +1,5 @@
 <template>
+<q-page class="flex flex-center">
 <div>
 	<div class="q-pa-md q-gutter-sm">
     <q-tree
@@ -11,8 +12,10 @@
 	<q-btn class="col-auto" icon="list" label="Start Cooking" @click='$router.push({name: "ThaliPlan"})' no-caps/>
 
 	</div>
-
 </div>
+
+</q-page>
+
 
 
 </template>

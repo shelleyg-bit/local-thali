@@ -2,17 +2,30 @@
 const routes = [
 	{
 		path: '/',
-		component: () => import('pages/ThaliSpin.vue'),
+		component: () => import('pages/Intro.vue'),
 	},
 	{
-		path: '/groceryList',
-		name: 'GroceryList',
-		component: () => import('pages/GroceryList.vue'),
-	},
-	{
-		path: '/thaliPlan',
-		name: 'ThaliPlan',
-		component: () => import('pages/ThaliPlan.vue'),
+		path: '/localthali',
+		component: () => import('layouts/MainLayout.vue'),
+		childern: [
+			{
+				path: '/createThali',
+				name: 'ThaliSpin',
+				component: () => import('pages/ThaliSpin.vue')
+			},
+			{
+				path: '/groceryList',
+				name: 'GroceryList',
+				component: () => import('pages/GroceryList.vue'),
+			},
+			{
+				path: '/thaliPlan',
+				name: 'ThaliPlan',
+				component: () => import('pages/ThaliPlan.vue'),
+			}
+
+		]
+
 	},
 
 	// Always leave this as last one,

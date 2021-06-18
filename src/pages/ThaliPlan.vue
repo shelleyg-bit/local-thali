@@ -1,4 +1,5 @@
 <template>
+<q-page class="flex flex-center">
 <div>
 	<div class="text-h3 q-pa-md justify-center" > What's cooking? </div>
 <div class="row justify-evenly">
@@ -8,6 +9,8 @@
 </div>
 
 </div>
+
+</q-page>
 	
 </template>
 <script>
