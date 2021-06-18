@@ -24,7 +24,10 @@
 		</q-dialog>
 
 		<div class="row justify-evenly">
-			<q-btn icon="list" label="GroceryList" @click='$router.push({name: "GroceryList"})'/>
+			<q-btn class="q-ma-md col-auto" icon="list" 
+			label="What's Cooking?" @click='goToThaliPlan' no-caps/>
+			<q-btn class="q-ma-md col-auto" icon="list"
+			label="GroceryList" @click='goToGroceryList'/>
 		</div>
 
   </q-page>
@@ -67,6 +70,21 @@ export default {
 
 			} else {
 				this.noMoreRecipesLeft = true
+			}
+		},
+		goToThaliPlan() {
+			if (this.$store.state.user.plannedThalis.length) {
+				this.$router.push({name: 'ThaliPlan'})
+			} else {
+				alert("you have not created any Thalis yet")
+			}
+
+		},
+		goToGroceryList() {
+			if (this.$store.state.user.plannedThalis.length) {
+				this.$router.push({name: 'GroceryList'})
+			} else {
+				alert("you have not created any Thalis yet")
 			}
 		}
 	},

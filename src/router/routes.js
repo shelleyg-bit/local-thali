@@ -5,9 +5,14 @@ const routes = [
 		component: () => import('pages/ThaliSpin.vue'),
 	},
 	{
-		path: '/grocerylist',
+		path: '/groceryList',
 		name: 'GroceryList',
 		component: () => import('pages/GroceryList.vue'),
+	},
+	{
+		path: '/thaliPlan',
+		name: 'ThaliPlan',
+		component: () => import('pages/ThaliPlan.vue'),
 	},
 
 	// Always leave this as last one,

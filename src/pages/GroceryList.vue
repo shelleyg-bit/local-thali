@@ -7,6 +7,10 @@
 			label-key="name"
     />
   </div>
+	<div class="row justify-evenly">
+	<q-btn class="col-auto" icon="list" label="Start Cooking" @click='$router.push({name: "ThaliPlan"})' no-caps/>
+
+	</div>
 
 </div>
 
