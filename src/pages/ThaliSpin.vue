@@ -62,6 +62,13 @@ export default {
 			
 			let thaliOptions = this.$store.state.recipes.recipesDb.find((db) =>
 			db.location === location && db.hasMeat === eatsMeat).recipes
+			if (eatsMeat) {
+				let nonMeatOptions = this.$store.state.recipes.recipesDb.find((db) =>
+					db.location === location && db.hasMeat === false).recipes
+				thaliOptions = thaliOptions.concat(nonMeatOptions)
+				// console.log("number of options", thaliOptions.length, nonMeatOptions.length)
+			}
+			
 	
 	    // filter already thalis which are already shown to user
 		  thaliOptions = thaliOptions.filter((thali) => 
