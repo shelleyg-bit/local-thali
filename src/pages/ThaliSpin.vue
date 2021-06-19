@@ -31,11 +31,12 @@
 		</q-dialog>
 
 		<div class="row justify-evenly">
-			<q-btn class="q-ma-md col-6" color="black" icon="shopping_bag"
+			<q-btn class="text-h6 q-ma-md col-6" color="black" icon="shopping_bag"
 			label="Hunt & Gather" @click='goToGroceryList'/>
-			<q-btn class="q-ma-md col-6" color="black" icon="microwave" 
+			<q-btn class="text-h6 q-ma-md col-6" color="black" icon="microwave" 
 			label="What's Cooking?" @click='goToThaliPlan' no-caps/>
 		</div>
+		
 
 </div>
 
