@@ -6,6 +6,10 @@
       :nodes="groceryList"
       node-key="name"
 			label-key="name"
+			tick-strategy="leaf"
+			:selected.sync="selected"
+			:expanded.sync="expanded"
+			:ticked.sync="ticked"
     />
   </div>
 	<div class="row justify-evenly">
@@ -33,13 +37,18 @@ export default {
 	name: 'GroceryList',
 	data() {
 		return {
-			groceryList: []
+			groceryList: [],
+			expanded: [],
+			selected: '',
+			ticked: []
 		}
 	},
 	
 	methods: {
 		updateGrocerylist() {
 			const userGroceryList = this.$store.state.user.groceryList
+			const categories = Object.keys(userGroceryList)
+			this.expanded.push(categoryMap[categories[0]])
 			for (const category of Object.keys(userGroceryList)) {
 				const gItem = {name: categoryMap[category]}
 				gItem.children = userGroceryList[category]
