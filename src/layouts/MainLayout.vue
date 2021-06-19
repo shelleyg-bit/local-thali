@@ -40,16 +40,14 @@
       </q-list>
     </q-drawer> -->
 		 <q-header reveal class="bg-black">
-        <div>
           <q-btn
-            icon="fas fa-arrow-left"
+            icon="arrow_back"
             v-go-back.single
             flat
             unelevated
             color="white"
             class="q-pa-xs"
           />
-        </div>
 		 </q-header>
 
 
