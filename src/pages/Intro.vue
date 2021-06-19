@@ -1,7 +1,7 @@
 <template>
 <q-layout view="hhh lpr fff">
 	<q-page-container>
-		<q-page class="q-mt-lg">
+		<q-page class="flex flex-center">
 			
  <div class="q-pa-md">
 	 <q-carousel
@@ -15,14 +15,16 @@
       control-color="black"
     >
       <q-carousel-slide :name="1" class="column no-wrap flex-center">
-        <div class="q-ma-xl text-center">
-          A Thali is a complete Meal
+        <div class="q-ma-xl text-center text-h3">
+          A Thali is a <u>complete</u> Meal
         </div>
       </q-carousel-slide>
       <q-carousel-slide :name="2" class="column no-wrap flex-center">
-        <div class="q-ma-xl text-center">
-          Curated by Chefs & Farmers from your city of 
+        <div class="q-mx-xl text-center text-h3">
+          Curated by <u>Farmers</u> & Chefs
         </div>
+				<div class="q-mt-md text-center text-h6">From your</div>
+				<q-select outlined v-model="userLocation" :options="locations" label="City of" />
       </q-carousel-slide>
       <q-carousel-slide :name="3" class="column no-wrap flex-center">
         <div class="q-ma-xl text-center">
@@ -61,16 +63,21 @@
 
 <script>
 export default {
+	name: 'Intro',
   data () {
     return {
       slide: 1,
-      lorem: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque voluptatem totam, architecto cupiditate officia rerum, error dignissimos praesentium libero ab nemo provident incidunt ducimus iusto perferendis porro earum. Totam, numquam?'
+			userLocation: 'Portland, Oregon, USA',
+			locations: ['Portland, Oregon, USA', 'Jaipur, Rajasthan, India']
     }
   },
 methods: {
 	goToThali() {
 		this.$router.push({name: 'ThaliSpin'})
-	}
+	},
+},
+beforeDestroy() {
+	this.$store.commit('updateLocation', this.userLocation)
 }
 }
 </script>

@@ -1,13 +1,16 @@
 export default {
 	name: 'user',
 	state: {
-		location: 'Portland, OR, USA',
+		location: 'Portland, Oregon, USA',
 		eatsMeat: false,
 		plannedThalis: [],
 		rejectedThalis: [],
 		groceryList: {}
 	},
 	mutations: {
+		updateLocation(state, location) {
+			state.location = location
+		},
 		addThali(state, thaliName) {
 			state.plannedThalis.push(thaliName)
 

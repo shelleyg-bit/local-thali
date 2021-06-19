@@ -3,7 +3,7 @@ export default {
 	state: {
 		recipesDb: [
 			{
-				location: 'Portland, OR, USA',
+				location: 'Portland, Oregon, USA',
 				hasMeat: false,
 				recipes: [
 					{
@@ -87,7 +87,8 @@ export default {
 				]
 			},
 			{
-				location: 'Lucknow, UP, India',
+				location: 'Jaipur, Rajasthan, India',
+				hasMeat: false,
 				recipes: [
 					{
 						name: 'aaloo dum banarsi',
