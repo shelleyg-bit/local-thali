@@ -9,9 +9,9 @@
 				}} </div>
       </q-card-section>
 
-      <q-tabs v-model="tab" class="text-teal">
-        <q-tab label="Ingredients" name="ingredients" />
-        <q-tab label="How to Cook?" name="steps" />
+      <q-tabs v-model="tab" class="text-black">
+        <q-tab label="Nature's Edibles" name="ingredients" no-caps/>
+        <q-tab label="To a HomeCooked Treat" name="steps" no-caps/>
       </q-tabs>
 
       <q-separator />
@@ -32,13 +32,13 @@
         </q-tab-panel>
       </q-tab-panels>
 
-			<q-card-actions class="row justify-evenly">
-				<q-btn class="q-ma-xs col-6" color="secondary" 
+			<q-card-actions v-if="!startCooking" class="row justify-evenly">
+				<q-btn class="q-ma-xs col-6" color="black" 
 				icon-right="local_grocery_store" 
 				label="Yumm! Let's cook that" 
 				@click="addThaliToPlan" 
 				no-caps v-close-popup/>
-				<q-btn class="q-ma-xs col-6" color="secondary" 
+				<q-btn class="q-ma-xs col-6" color="grey-14" 
 				icon-right="layers_clear" 
 				label="Naah! Not feeling it" 
 				@click="rejectThali" 
@@ -59,6 +59,11 @@ import Step from 'components/Step.vue'
 		 thaliRecipe: {
 			 type: Object,
 			 required: true
+		 },
+		 startCooking: {
+			 type: Boolean,
+			 required: false,
+			 default: false
 		 }
 	 },
 	 components: {
