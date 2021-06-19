@@ -1,6 +1,11 @@
 <template>
 <div class="column items-center justify-center">
 	<div class="text-h6 q-pa-md text-center" > Tap image to Create Thalis</div>
+	<q-card flat bordered>
+		<q-card-section class="text-subtitle1">
+			Thali Count # <b>{{ $store.state.user.plannedThalis.length }}</b>
+		</q-card-section>
+	</q-card>
 	<div class="row justify-center">
     <img
       alt="Quasar logo"
