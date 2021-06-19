@@ -46,6 +46,11 @@ export default {
 			
 			let thaliOptions = this.$store.state.recipes.recipesDb.find((db) =>
 			db.location === location && db.hasMeat === eatsMeat).recipes
+			if (eatsMeat) {
+				let nonMeatOptions = this.$store.state.recipes.recipesDb.find((db) =>
+					db.location === location && db.hasMeat === false).recipes
+				thaliOptions = thaliOptions.concat(nonMeatOptions)
+			}
 			this.thaliRecipe = thaliOptions.find(thali => thali.name === this.thaliName) 
 		}
 	}
