@@ -1,19 +1,21 @@
 <template>
 <div>
-	<div class="q-pa-md row items-start q-gutter-md">
-		<!-- TODO: add card click show Recipe card -->
-    <q-card class="my-card" @click="showRecipeCard">
-      <q-card-section>
+    <q-card class="column" @click="showRecipeCard"
+		bordered flat
+		style="background: black"
+		dark
+		>
+      <q-card-section class="text-h6 text-center">
         {{ thaliName }}
       </q-card-section>
     </q-card>
 
-	</div>
     <q-dialog v-model='showRecipe'>
 	    <RecipeCard :thaliRecipe="thaliRecipe" :startCooking="true"/>
     </q-dialog>
 
 </div>
+
 </template>
 <script>
 import RecipeCard from 'components/RecipeCard.vue'

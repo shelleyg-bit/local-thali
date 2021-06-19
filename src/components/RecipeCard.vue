@@ -15,7 +15,7 @@
       
       {{ recipeProgress }} %
     </q-circular-progress>
-        <div class="col-6 q-ma-md text-left text-h5">{{ 
+        <div class="col-6 q-ma-sm text-left text-h6">{{ 
 					thaliRecipe.name.toLowerCase()
 					.split(' ')
     			.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
@@ -23,9 +23,9 @@
 				}} </div>
       </q-card-section>
 
-      <q-tabs v-model="tab" class="text-black">
-        <q-tab content-class="text-body1" label="From Nature's Edibles" name="ingredients" no-caps/>
-        <q-tab content-class="text-body1" label="to a Home-Cooked Treat" name="steps" no-caps/>
+      <q-tabs v-model="tab" content-class="text-body1" alight="left" dense>
+        <q-tab label="Nature's Edibles" name="ingredients" no-caps/>
+        <q-tab label="To A Tasty Thali" name="steps" no-caps/>
       </q-tabs>
 
       <q-separator />
