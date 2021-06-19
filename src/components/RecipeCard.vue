@@ -24,8 +24,8 @@
       </q-card-section>
 
       <q-tabs v-model="tab" class="text-black">
-        <q-tab label="Nature's Edibles" name="ingredients" no-caps/>
-        <q-tab label="To a HomeCooked Treat" name="steps" no-caps/>
+        <q-tab content-class="text-body1" label="From Nature's Edibles" name="ingredients" no-caps/>
+        <q-tab content-class="text-body1" label="to a Home-Cooked Treat" name="steps" no-caps/>
       </q-tabs>
 
       <q-separator />
