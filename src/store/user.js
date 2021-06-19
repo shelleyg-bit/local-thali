@@ -11,6 +11,9 @@ export default {
 		updateLocation(state, location) {
 			state.location = location
 		},
+		updateMeatChoice(state, eatsMeat) {
+			state.eatsMeat = eatsMeat
+		},
 		addThali(state, thaliName) {
 			state.plannedThalis.push(thaliName)
 
