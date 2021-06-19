@@ -48,12 +48,12 @@
 
 			<q-card-actions v-if="!startCooking" class="row justify-evenly">
 				<q-btn class="q-ma-xs col-6" color="black" 
-				icon-right="local_grocery_store" 
-				label="Yumm! Let's cook that" 
+				icon-right="mood" 
+				label="Yumm! Wanna cook that" 
 				@click="addThaliToPlan" 
 				no-caps v-close-popup/>
 				<q-btn class="q-ma-xs col-6" color="grey-14" 
-				icon-right="layers_clear" 
+				icon-right="mood_bad" 
 				label="Naah! Not feeling it" 
 				@click="rejectThali" 
 				no-caps v-close-popup/>
