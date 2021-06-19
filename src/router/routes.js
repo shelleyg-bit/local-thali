@@ -5,11 +5,11 @@ const routes = [
 		component: () => import('pages/Intro.vue'),
 	},
 	{
-		path: '/localthali',
+		path: '/createthali',
 		component: () => import('layouts/MainLayout.vue'),
-		childern: [
+		children: [
 			{
-				path: '/createThali',
+				path: '',
 				name: 'ThaliSpin',
 				component: () => import('pages/ThaliSpin.vue')
 			},

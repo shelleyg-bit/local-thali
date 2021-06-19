@@ -48,10 +48,8 @@
     </q-carousel>
   </div>
 <div v-if="slide === 6" class="row justify-center">
-		<q-btn v-if="slide === 6" color="black" label="Start Creating" @click="goToThali"/>
+		<q-btn color="black" label="Start Creating" @click="goToThali"/>
 	
-
-
 </div>
 
 		</q-page>

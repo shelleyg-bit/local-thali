@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center">
+<div>
     <img
       alt="Quasar logo"
       src="assets/thali.jpg"
@@ -28,7 +28,8 @@
 			label="GroceryList" @click='goToGroceryList'/>
 		</div>
 
-  </q-page>
+</div>
+
 </template>
 
 <script>
