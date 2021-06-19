@@ -25,7 +25,7 @@
 		</q-tree>
   </div>
 	<div class="row q-mt-lg justify-evenly">
-	<q-btn color="black" class="text-h6 col-auto" icon="pan" label="Start Cooking" @click='$router.push({name: "ThaliPlan"})' no-caps/>
+	<q-btn color="black" class="text-h6 col-auto" icon="microwave" label="Start Cooking" @click='$router.push({name: "ThaliPlan"})' no-caps/>
 
 	</div>
 </div>

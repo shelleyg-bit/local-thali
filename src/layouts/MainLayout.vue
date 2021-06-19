@@ -39,6 +39,19 @@
         />
       </q-list>
     </q-drawer> -->
+		 <q-header reveal class="bg-black">
+        <div>
+          <q-btn
+            icon="fas fa-arrow-left"
+            v-go-back.single
+            flat
+            unelevated
+            color="white"
+            class="q-pa-xs"
+          />
+        </div>
+		 </q-header>
+
 
     <q-page-container>
 			<q-page class="q-pa-md">

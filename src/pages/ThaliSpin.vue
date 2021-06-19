@@ -1,11 +1,15 @@
 <template>
-<div>
+<div class="column items-center justify-center">
+	<div class="text-h6 q-pa-md text-center" > Tap image to Create Thalis</div>
+	<div class="row justify-center">
     <img
       alt="Quasar logo"
       src="assets/thali.jpg"
       style="width: 400px; height: 400px"
       @click="generateRecipe"
     >
+
+	</div>
     <q-dialog v-model='showRecipe' persistent>
 	    <RecipeCard :thaliRecipe="thaliRecipe" />
     </q-dialog>
@@ -22,10 +26,10 @@
 		</q-dialog>
 
 		<div class="row justify-evenly">
-			<q-btn class="q-ma-md col-auto" icon="list" 
+			<q-btn class="q-ma-md col-6" color="black" icon="shopping_bag"
+			label="Hunt & Gather" @click='goToGroceryList'/>
+			<q-btn class="q-ma-md col-6" color="black" icon="microwave" 
 			label="What's Cooking?" @click='goToThaliPlan' no-caps/>
-			<q-btn class="q-ma-md col-auto" icon="list"
-			label="GroceryList" @click='goToGroceryList'/>
 		</div>
 
 </div>
