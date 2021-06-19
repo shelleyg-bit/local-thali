@@ -9,7 +9,7 @@
     </q-card>
 
 	</div>
-    <q-dialog v-model='showRecipe' persistent>
+    <q-dialog v-model='showRecipe'>
 	    <RecipeCard :thaliRecipe="thaliRecipe" :startCooking="true"/>
     </q-dialog>
 

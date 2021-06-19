@@ -5,7 +5,8 @@ export default {
 		eatsMeat: false,
 		plannedThalis: [],
 		rejectedThalis: [],
-		groceryList: {}
+		groceryList: {},
+		recipeProgress: 0
 	},
 	mutations: {
 		updateLocation(state, location) {
@@ -42,6 +43,15 @@ export default {
 				}
 
 			}
+		},
+		incrementRecipeProgress(state) {
+			state.recipeProgress++
+		},
+		decrementRecipeProgress(state) {
+			state.recipeProgress--
+		},
+		resetRecipeProgress(state) {
+			state.recipeProgress = 0
 		}
 	}
 }

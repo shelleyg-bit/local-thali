@@ -1,7 +1,21 @@
 <template>
     <q-card class="recipe-card">
-      <q-card-section>
-        <div class="text-h6">{{ 
+      <q-card-section class="row items-center justify-left">
+				  <q-circular-progress
+					v-if="startCooking"
+      show-value
+      font-size="16px"
+      class="col-2 text-black q-mt-sm"
+      :value="recipeProgress"
+      size="60px"
+      :thickness="0.05"
+      color="black"
+      track-color="grey-3"
+    >
+      
+      {{ recipeProgress }} %
+    </q-circular-progress>
+        <div class="col-6 q-ma-md text-left text-h5">{{ 
 					thaliRecipe.name.toLowerCase()
 					.split(' ')
     			.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
@@ -44,6 +58,7 @@
 				@click="rejectThali" 
 				no-caps v-close-popup/>
 			</q-card-actions>
+
     </q-card>
 </template>
 <script>
@@ -70,6 +85,12 @@ import Step from 'components/Step.vue'
 		 Ingredient,
 		 Step
 	 },
+	 computed: {
+		 /**@returns { object } */
+		 recipeProgress() {
+			 return Math.round((this.$store.state.user.recipeProgress / this.thaliRecipe.steps.length) * 100)
+		 }
+	 },
 	 methods: {
 		 addThaliToPlan() {
 			this.$store.commit('addThali', this.thaliRecipe.name)
@@ -79,6 +100,9 @@ import Step from 'components/Step.vue'
 		 rejectThali() {
 			 this.$store.commit('rejectThali', this.thaliRecipe.name)
 		 }
+	 },
+	 created() {
+		 this.$store.commit('resetRecipeProgress')
 	 }
  }
 </script>
