@@ -1,7 +1,7 @@
 {
   "name": "local_thali",
   "version": "0.0.1",
-  "description": "Meal's reflecting your local agricultture system",
+  "description": "Easy Mealplanning within Earth's budget, reflecting our local agricultural sytem",
   "productName": "Local Thali",
   "author": "Shelley Goel <shelley.goel109@gmail.com>",
   "private": true,
