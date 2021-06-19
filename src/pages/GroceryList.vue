@@ -1,7 +1,7 @@
 <template>
-<q-page class="flex flex-center">
-<div>
-	<div class="q-pa-md q-gutter-sm">
+<div class="column items-center">
+	<div class="text-h2 q-pa-md text-center" > Hunt & <u>Gather</u></div>
+	<div class="q-mt-lg q-gutter-sm">
     <q-tree
       :nodes="groceryList"
       node-key="name"
@@ -10,15 +10,26 @@
 			:selected.sync="selected"
 			:expanded.sync="expanded"
 			:ticked.sync="ticked"
-    />
+    >
+		<template v-slot:default-header="prop">
+			<div class="row items-center">
+				<div class="q-ml-sm text-weight-bold text-h6 text-black">{{ prop.node.name }}</div>
+			</div>
+		</template>
+		<template v-slot:default-body="prop">
+			<div v-if="prop.node.quantity">
+			Quantity: <span class="text-weight-bold text-black">{{ prop.node.quantity }} {{prop.node.units}}</span>
+			</div>
+
+		</template>
+		</q-tree>
   </div>
-	<div class="row justify-evenly">
-	<q-btn class="col-auto" icon="list" label="Start Cooking" @click='$router.push({name: "ThaliPlan"})' no-caps/>
+	<div class="row q-mt-lg justify-evenly">
+	<q-btn color="black" class="text-h6 col-auto" icon="pan" label="Start Cooking" @click='$router.push({name: "ThaliPlan"})' no-caps/>
 
 	</div>
 </div>
 
-</q-page>
 
 
 
